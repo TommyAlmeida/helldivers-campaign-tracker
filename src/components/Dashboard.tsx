@@ -115,7 +115,7 @@ const Dashboard: React.FC = () => {
   const planetEvents = selectedCampaign?.planetEvents || [];
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-6">
+    <div className="min-h-screen bg-gray-900 text-white p-6 flex flex-col">
       <header className="mb-8">
         <h1 className="text-3xl font-bold">Helldivers 2 Campaign Dashboard</h1>
         <p className="text-gray-400">Real-time status of the galactic war</p>
@@ -149,7 +149,7 @@ const Dashboard: React.FC = () => {
         </div>
       </header>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 flex-grow">
         <div className="lg:col-span-1 space-y-6">
           <div className="bg-gray-800 rounded-lg p-4 shadow-md">
             <h2 className="text-xl font-bold text-white mb-4">
@@ -389,6 +389,18 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <footer className="mt-8 py-4 border-t border-gray-800 flex justify-center items-center">
+        <div className="text-gray-400 text-sm">
+          © 2025 Made with ❤️ by{" "}
+          <a
+            href="https://github.com/TommyAlmeida"
+            className="text-blue-500 hover:text-blue-400"
+          >
+            Tomas Almeida
+          </a>
+        </div>
+      </footer>
     </div>
   );
 };
