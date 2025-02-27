@@ -1,22 +1,27 @@
+export type CampaignType = 0 | 1; // 0 = Liberation, 1 = Defense
+export type CampaignStatus = "active" | "completed" | "failed";
+export type PlanetOwner = "Humans" | "Terminids" | "Automatons" | "Illuminates";
+export type EventType = "liberation" | "invasion" | "defend";
+
 export interface Campaign {
   id: string | number;
-  startDate?: string;
-  endDate?: string | null;
-  status?: string;
-  planetEvents?: PlanetEvent[];
-  planetStatus?: PlanetStatus[];
+  startDate: string;
+  endDate?: string;
+  status: CampaignStatus;
+  planetEvents: PlanetEvent[];
+  planetStatus: PlanetStatus[];
   planet?: Planet;
-  type?: number;
-  count?: number;
+  type: CampaignType;
+  count: number;
 }
 
 export interface PlanetEvent {
   id: string;
   planetName: string;
   planetIndex: number;
-  eventType: string;
+  eventType: EventType;
   startDate: string;
-  endDate: string | null;
+  endDate?: string;
   status: string;
 }
 
@@ -27,7 +32,7 @@ export interface PlanetStatus {
   status: string;
   liberation: number;
   players: number;
-  eventType: string | null;
+  eventType: EventType | null;
 }
 
 export interface Planet {
@@ -42,12 +47,12 @@ export interface Planet {
   maxHealth: number;
   health: number;
   disabled: boolean;
-  initialOwner: string;
-  currentOwner: string;
+  initialOwner: PlanetOwner;
+  currentOwner: PlanetOwner;
   regenPerSecond: number;
-  event: any | null;
+  event: PlanetEvent | null;
   statistics: PlanetStatistics;
-  attacking: any[];
+  attacking: PlanetStatus[];
 }
 
 export interface Biome {
